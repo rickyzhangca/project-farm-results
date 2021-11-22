@@ -8,7 +8,7 @@ with open('scripts/scraped.json') as f:
 
 washed = []
 
-nontesting = ['Kt_TSQXkaNM', 'HVzGRgBgUq0', 'NwIjLECJmA8', 'JzbU4LdgZpI', 'ajx0JD-caBA', '-DgzhVkAIuc', 'VwePft315Ds', 'wT0TTGO2CUY', '2ySSEzqEa_k', 'w9fTKZN0Eps', 'vVyin2n24X8', 'uzMGbxE_PZU', 'YeFat4aMcYg', 'ikAQdpUfVlI', 'vv1w9N9v3SA', '7oLHtW2psbA', 'QIeEU6Ta1Hc', 'PORwOE4B0GA', 'kZ0l4pkfP4Y', 'W5IJfrXH1lE', 'QrxsCKMTqHI', 'agAWXnT4-EQ', 'yIypt2-xlCY', 'Y_qx6TiDnmg']
+nontesting = ['S7D_FqpAvpo', 'psd_BYMljpY', 'RqzhmFCTbCA', '0Dv3TTYaWgI', '0x1546Jetjs', 'Hr8jIwVyIFE', 'XnIRdKZId3s', '9eeDAne-X5I', '4cc2JD3loFc', 'IuGWHfWqWtg', 'llQ2SmOML_k', 'OraBMAEF5rs', 'VXIu3oo8z4c', '5H_mZTh5bHY', 'N0gP4aEad-w', 'HNRO48PlbHg', 'prXiQgVVnDY', 'Wmg0bzuO1Mc', 'yt5a1cWd4', '7U26etcwKdU', 'Kt_TSQXkaNM', 'HVzGRgBgUq0', 'NwIjLECJmA8', 'JzbU4LdgZpI', 'ajx0JD-caBA', '-DgzhVkAIuc', 'VwePft315Ds', 'wT0TTGO2CUY', '2ySSEzqEa_k', 'w9fTKZN0Eps', 'vVyin2n24X8', 'uzMGbxE_PZU', 'YeFat4aMcYg', 'ikAQdpUfVlI', 'vv1w9N9v3SA', '7oLHtW2psbA', 'QIeEU6Ta1Hc', 'PORwOE4B0GA', 'kZ0l4pkfP4Y', 'W5IJfrXH1lE', 'QrxsCKMTqHI', 'agAWXnT4-EQ', 'yIypt2-xlCY', 'Y_qx6TiDnmg']
 
 for video in scraped:
     if video['id'] in nontesting:
@@ -27,7 +27,7 @@ for video in scraped:
     washed.append(video)
 
 json_object = json.dumps(washed, indent = 4, ensure_ascii=False) 
-with open("scripts/washed.json", "w") as outfile: 
+with open("scripts/washed-new.json", "w") as outfile: 
     outfile.write(json_object) 
 
 class front_matter:
@@ -47,6 +47,8 @@ class front_matter:
         assembled += '---\n'
         return assembled
 
+with open('scripts/washed.json') as f:
+  washed = json.load(f)
 for video in washed:
     with open('_posts/' + video['date'] + '-' + video['title'] + '.md', "w") as outfile: 
         header = front_matter()
@@ -56,3 +58,5 @@ for video in washed:
         header.add('youtube', video['url'])
         header.add('category', video['category'])
         outfile.write(header.assemble() + 'test content') 
+        
+        if video['category'] == '_placeholder': print(video['id'])

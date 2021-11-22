@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
   {% include head.md %}
-  <body>
-    <div class="container max-w-2xl mx-auto px-6 lg:px-0">
-      {% include header.md %} {{ content }} {% include footer.md %}
-      {% include google-analytics.md %}
+  
+
+<main class="flex flex-col h-screen">
+  <div class="flex flex-1 overflow-hidden">
+    <div class="flex bg-gray-100 w-32 p-4">Sidebar</div>
+    <div class="flex flex-1 flex-col">
+      {% include header.md %}
+      {{ content }}
     </div>
-  </body>
+  </div>
+</main>
 </html>

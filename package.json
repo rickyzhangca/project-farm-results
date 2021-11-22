@@ -9,7 +9,9 @@
   "scripts": {
     "jekyll:serve": "bundle exec jekyll serve --incremental --watch",
     "jekyll:build": "bundle exec jekyll build",
-    "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./assets/css/main.css --minify"
+    "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./assets/css/main.css --minify",
+    "css": "yarn css:build",
+    "dev": "bundle exec jekyll serve"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.2",

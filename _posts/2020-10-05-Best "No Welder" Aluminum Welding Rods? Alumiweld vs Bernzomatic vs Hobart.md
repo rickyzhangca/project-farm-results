@@ -2,6 +2,6 @@
 layout: post
 tempdate: 2020-10-05
 youtube: https://www.youtube.com/watch?v=fKIKsDfRAcs
-category: _placeholder
+category: Aluminum Welding Rods
 ---
 test content

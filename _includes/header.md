@@ -1,4 +1,4 @@
-<header>
+<header class="flex bg-gray-300 h-16 p-4">
   <nav
     class="flex flex-col sm:flex-row justify-between sm:pb-8 pt-8 sm:pt-8"
     role="navigation"

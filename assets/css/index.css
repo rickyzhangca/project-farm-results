@@ -5,30 +5,19 @@
 
 @layer base {
   @font-face {
-    font-family: Cantarell;
-    src: url("fonts/cantarell-regular.woff2") format("woff2");
+    font-family: Inter;
+    src: url("fonts/Inter-Regular.woff2") format("woff2");
     font-weight: 400;
   }
   @font-face {
-    font-family: Cantarell;
-    src: url("fonts/cantarell-bold.woff2") format("woff2");
-    font-weight: 700;
+    font-family: Inter;
+    src: url("fonts/Inter-Medium.woff2") format("woff2");
+    font-weight: 500;
   }
   @font-face {
-    font-family: Cantarell;
-    src: url("fonts/cantarell-thin.woff2") format("woff2");
-    font-weight: 100;
-  }
-  @font-face {
-    font-family: Cantarell;
-    src: url("fonts/cantarell-light.woff2") format("woff2");
-    font-weight: 300;
-  }
-
-  @font-face {
-    font-family: Cantarell;
-    src: url("fonts/cantarell-extrabold.woff2") format("woff2");
-    font-weight: 800;
+    font-family: Inter;
+    src: url("fonts/Inter-SemiBold.woff2") format("woff2");
+    font-weight: 600;
   }
 
   h2 {

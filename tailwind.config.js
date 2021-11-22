@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Cantarell', 'sans-serif']
+        sans: ['Inter', 'sans-serif']
       },
       minWidth: {
         '1': '0.25rem',
