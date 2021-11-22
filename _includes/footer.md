@@ -16,7 +16,7 @@
     </div>
     <p class="leading-snug text-gray-600 text-xs text-center">
       © 2021 All rights reserved by
-      <a href="http://github.com/shenlu89" class="text-gray-600 hover:text-gray-800 no-underline hover:underline">Shen Lu</a>
+      <a href="https://rickyzhang.me/" class="text-gray-600 hover:text-gray-800 no-underline hover:underline">Ricky Zhang</a>
     </p>
   </div>
 </footer>

@@ -22,4 +22,3 @@ layout: default
     <div class="mt-4 text-justify">{{ content }}</div>
   </div>
 </article>
-{% include disqus.md %}
