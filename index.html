@@ -1,85 +1,89 @@
 ---
 layout: default
-title: "Jekyll Tailwindcss Starter"
-subtitle: "You're ready to go! Start developing your Jekyll website."
+title: "Project Farm Results"
 ---
 
-<article class="w-full max-w-none py-8">
-  <h2>
-    {{ page.subtitle }}
-  </h2>
-  {% for post in paginator.posts %}
-  <article class="flex flex-col w-full border-b border-gray-200 py-6">
-    <a
-      class="text-lg font-semibold text-blue-500 hover:text-blue-700 no-underline hover:no-underline"
-      href="{{ site.github.url }}{{post.url}}"
-      title="{{ post.title }}"
-    >
-      {{ post.title }}
-    </a>
-    <p class="text-sm mt-2 font-medium text-gray-900">{{ post.subtitle }}</p>
-    <time class="text-sm text-gray-500 mt-2">
-      {{post.date | date: '%b %d, %Y'}}
-    </time>
-  </article>
+<article class="flex-1 overflow-y-auto px-10 lg:px-4">
+  <p class="hidden lg:inline-block my-6 px-4 py-3 rounded bg-gray-100 text-gray-500">
+    Tip: use 
+    <span class="inline-flex items-center justify-center px-2 py-1 mx-1 text-sm font-semibold leading-none text-gray-500 bg-gray-200 rounded-md">
+      Ctrl + F
+    </span> or 
+    <span class="inline-flex items-center justify-center px-2 py-1 mx-1 text-sm font-semibold leading-none text-gray-500 bg-gray-200 rounded-md">
+      Command + F
+    </span>
+      to quickly search for the tools
+  </p>
+  {% assign rawcategories = "" %}
+  {% for post in site.posts %}
+    {% assign ccategories = post.category | join:'|' | append:'|' %}
+    {% assign rawcategories = rawcategories | append:ccategories %}
+  {% endfor %}
+  {% assign rawcategories = rawcategories | split:'|' | sort %}
 
-  {% endfor %} {% if paginator.total_posts %}
-  <div class="flex justify-between pt-8">
-    <div class="flex font-extrabold space-x-1">
-      <div>Total</div>
-      <span class="text-blue-500 inline-flex justify-center rounded-full"
-        >{{ paginator.total_posts }}</span
-      >
-      <div>Posts</div>
-    </div>
-    <div class="font-extrabold felx">
-      {% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
-      <a
-        href="{{ site.github.url }}/"
-        class="cursor-pointer text-gray-900 font-extrabold no-underline hover:underline"
-        >Prev</a
-      >
-      {% else %}
-      <a
-        href="{{ site.github.url }}/page{{paginator.previous_page}}"
-        class="cursor-pointer text-gray-900 font-extrabold hover:text-blue-700 no-underline hover:underline"
-        >Prev</a
-      >
-      {% endif %} {% else %}
-      <a class="cursor-not-allowed text-gray-500"></a>
-      {% endif %} {% if paginator.page == 1 %}
-      <a
-        class="bg-blue-500 text-white font-extrabold min-w-6 px-1 h-6 inline-flex justify-center rounded-full hover:no-underline no-underline hover:text-white"
-        >1</a
-      >
-      {% else %}
-      <a
-        href="{{ site.github.url }}/"
-        class="min-w-6 px-1 h-6 inline-flex font-extrabold justify-center text-blue-500 hover:text-blue-700 no-underline hover:underline rounded-full"
-        >1</a
-      >
-      {% endif %} {% for count in (2..paginator.total_pages) %} {% if count ==
-      paginator.page %}
-      <a
-        class="bg-blue-500 text-white hover:text-white no-underline font-extrabold min-w-6 px-1 h-6 inline-flex justify-center rounded-full hover:no-underline"
-        >{{count}}</a
-      >
-      {% else %}
-      <a
-        href="{{ site.github.url }}/page{{count}}"
-        class="min-w-6 px-1 h-6 inline-flex font-extrabold justify-center text-blue-500 hover:text-blue-700 no-underline hover:underline broder-blue-100 cursor-pointe rounded-full"
-        >{{count}}</a
-      >
-      {% endif %} {% endfor %} {% if paginator.next_page %}
-      <a
-        class="cursor-pointer text-gray-900 font-extrabold font-extrabold no-underline hover:underline"
-        href="{{ site.github.url }}/page{{paginator.next_page}}"
-        >Next</a
-      >
-      {% else %}
-      <a class="cursor-not-allowed text-gray-500"></a>
+  {% assign categories = "" %}
+  {% for category in rawcategories %}
+    {% if category != "" %}
+      {% if categories == "" %}
+        {% assign categories = category | split:'|' %}
       {% endif %}
+      {% unless categories contains category %}
+        {% assign categories = categories | join:'|' | append:'|' | append:category | split:'|' %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+
+  {% for category in categories %}
+    <div class="flex flex-col lg:flex-row lg:space-x-4">
+      <div class="flex lg:w-80 items-start pt-8">
+        <div class="flex items-center">
+          <img class="mr-2 w-8" src="/assets/images/tag.svg">
+          <p class="text-lg font-semibold text-gray-900"> {{ category }} </p>
+        </div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        {% for post in site.categories[category] %}
+          <article class="flex flex-1 flex-col py-8 border-b border-gray-200">
+            <p class="space-x-1">
+              <a
+                class="text-lg font-medium leading-tight text-gray-900 hover:text-red-600 no-underline hover:no-underline"
+                href="{{ site.github.url }}{{post.youtube}}"
+                target="_blank"
+                title="{{ post.title }}"
+              >
+                {{ post.video-title }}
+              </a>
+              <time class="text-lg font-medium text-gray-400">
+                {{post.date | date: '%b %d, %Y'}}
+              </time>
+            </p>
+            <p class="mt-4">{{ post.content }}</p>
+          </article>
+        {% endfor %}
+      </div>
     </div>
-  </div>
-  {% endif %}
+  {% endfor %}
 </article>
+
+<!--
+  </div class="flex flex-1">
+        {% for post in site.categories[category] %}
+          <article class="w-full border-b border-gray-200 py-6">
+            <p class="space-x-2">
+              <a
+                class="text-lg font-medium text-gray-900 hover:text-red-600 no-underline hover:no-underline"
+                href="{{ site.github.url }}{{post.youtube}}"
+                target="_blank"
+                title="{{ post.title }}"
+              >
+                {{ post.title }}
+              </a>
+              <time class="text-lg font-medium text-gray-400">
+                {{post.date | date: '%b %d, %Y'}}
+              </time>
+            </p>
+            {{ post.content }}
+          </article>
+        {% endfor %}
+      </div>
+-->

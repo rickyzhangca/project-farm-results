@@ -1,19 +1,15 @@
 # site
-url: https://shenlu89.github.io
-author: shenlu89
-title: "Jekyll Tailwindcss Starter" # the name of your site, e.g. ACME Corp.
+url: https://rickyzhangca.github.io/project-farm-results/
+author: Ricky Zhang
+title: "Project Farm Results"
 
 # markdown
 markdown: kramdown
 highlighter: rouge
 
-# paginator
 plugins:
-  - jekyll-paginate
   - jekyll-seo-tag
-
-paginate: 2
-paginate_path: "/page:num"
+  - jekyll-loading-lazy
 
 # google analytics
 google_analytics_id: "Google Analytics ID"

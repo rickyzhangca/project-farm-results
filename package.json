@@ -1,15 +1,17 @@
 {
-  "name": "jekyll-tailwindcss-starter",
+  "name": "project-farm-results",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:shenlu89/jekyll-tailwindcss-starter.git",
-  "author": "Shenlu",
-  "email": "shenlu89 <shenlu89dev@gmail.com>",
+  "repository": "git@github.com:rickyzhangca/project-farm-results.git",
+  "author": "Ricky Zhang",
+  "email": "Ricky Zhang <haoyuzhangca@outlook.com <haoyuzhangca@outlook.com>>",
   "license": "MIT",
   "scripts": {
     "jekyll:serve": "bundle exec jekyll serve --incremental --watch",
     "jekyll:build": "bundle exec jekyll build",
-    "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./assets/css/main.css --minify"
+    "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./assets/css/main.css --minify",
+    "css": "yarn css:build",
+    "dev": "bundle exec jekyll serve"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.2",
