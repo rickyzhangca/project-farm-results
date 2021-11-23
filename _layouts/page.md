@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="w-full max-w-none py-8">
+<article class="bg-gray-100 w-full max-w-none py-8">
   <h2>
     {{ page.title | escape }}
   </h2>

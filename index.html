@@ -3,26 +3,75 @@ layout: default
 title: "Project Farm Results"
 ---
 
-<article class="overflow-y-auto paragraph px-4">
-  <h2>
-    {{ page.subtitle }}
-  </h2>
-  {% for post in site.posts %} 
-  <article class="flex flex-col w-full border-b border-gray-200 py-6">
-    <a
-      class="text-lg font-semibold text-blue-500 hover:text-blue-700 no-underline hover:no-underline"
-      href="{{ site.github.url }}{{post.youtube}}"
-      target="_blank"
-      title="{{ post.title }}"
-    >
-      {{ post.title }}
-    </a>
-    <!-- <p class="text-sm mt-2 font-medium text-gray-900">{{ post.subtitle }}</p> -->
-    <time class="text-sm text-gray-500 mt-2">
-      {{post.date | date: '%b %d, %Y'}}
-    </time>
-    {{ post.content }}
-  </article>
+<article class="flex-1 overflow-y-auto px-4">
+  {% assign rawcategories = "" %}
+  {% for post in site.posts %}
+    {% assign ccategories = post.category | join:'|' | append:'|' %}
+    {% assign rawcategories = rawcategories | append:ccategories %}
+  {% endfor %}
+  {% assign rawcategories = rawcategories | split:'|' | sort %}
 
-  {% endfor %} 
+  {% assign categories = "" %}
+  {% for category in rawcategories %}
+    {% if category != "" %}
+      {% if categories == "" %}
+        {% assign categories = category | split:'|' %}
+      {% endif %}
+      {% unless categories contains category %}
+        {% assign categories = categories | join:'|' | append:'|' | append:category | split:'|' %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+
+  {% for category in categories %}
+    <div class="flex flex-row">
+      <div class="flex w-96 items-start pt-8">
+        <img class="mr-3 w-8" src="/assets/images/epoxy.svg">
+        <p class="text-2xl font-semibold text-gray-900"> {{ category }} </p>
+      </div>
+      <div class="flex flex-1 flex-col">
+        {% for post in site.categories[category] %}
+          <article class="flex flex-1 flex-col py-8 border-b border-gray-200">
+            <p class="space-x-1">
+              <a
+                class="text-lg font-medium leading-tight text-gray-900 hover:text-red-600 no-underline hover:no-underline"
+                href="{{ site.github.url }}{{post.youtube}}"
+                target="_blank"
+                title="{{ post.title }}"
+              >
+                {{ post.video-title }}
+              </a>
+              <time class="text-lg font-medium text-gray-400">
+                {{post.date | date: '%b %d, %Y'}}
+              </time>
+            </p>
+            <p class="mt-3">{{ post.content }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
 </article>
+
+<!--
+  </div class="flex flex-1">
+        {% for post in site.categories[category] %}
+          <article class="w-full border-b border-gray-200 py-6">
+            <p class="space-x-2">
+              <a
+                class="text-lg font-medium text-gray-900 hover:text-red-600 no-underline hover:no-underline"
+                href="{{ site.github.url }}{{post.youtube}}"
+                target="_blank"
+                title="{{ post.title }}"
+              >
+                {{ post.title }}
+              </a>
+              <time class="text-lg font-medium text-gray-400">
+                {{post.date | date: '%b %d, %Y'}}
+              </time>
+            </p>
+            {{ post.content }}
+          </article>
+        {% endfor %}
+      </div>
+-->
