@@ -4,6 +4,16 @@ title: "Project Farm Results"
 ---
 
 <article class="flex-1 overflow-y-auto px-10 lg:px-4">
+  <p class="hidden lg:inline-block my-6 px-4 py-3 rounded bg-gray-100 text-gray-500">
+    Tip: use 
+    <span class="inline-flex items-center justify-center px-2 py-1 mx-1 text-sm font-semibold leading-none text-gray-500 bg-gray-200 rounded-md">
+      Ctrl + F
+    </span> or 
+    <span class="inline-flex items-center justify-center px-2 py-1 mx-1 text-sm font-semibold leading-none text-gray-500 bg-gray-200 rounded-md">
+      Command + F
+    </span>
+      to quickly search for the tools
+  </p>
   {% assign rawcategories = "" %}
   {% for post in site.posts %}
     {% assign ccategories = post.category | join:'|' | append:'|' %}
