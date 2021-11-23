@@ -1,7 +1,5 @@
 
 import json
-import os
-
 
 with open('scripts/scraped.json') as f:
   scraped = json.load(f)
@@ -27,8 +25,9 @@ for video in scraped:
     washed.append(video)
 
 json_object = json.dumps(washed, indent = 4, ensure_ascii=False) 
-with open("scripts/washed-new.json", "w") as outfile: 
+with open("scripts/washed_new.json", "w") as outfile: 
     outfile.write(json_object) 
+
 
 class front_matter:
     _content = {}
@@ -39,9 +38,9 @@ class front_matter:
     def assemble(self):
         assembled = '---\n'
         for key, value in self._content.items():
-            if key == 'title':
-                # assembled += key + ": '" + value + "'" + '\n'
-                assembled += 'temp'
+            if key == 'title' or 'video-title':
+                assembled += key + ': "' + value.replace('"', r'\"') + '"' + '\n'
+                # assembled += 'temp'
                 continue
             assembled += key + ': ' + value + '\n'
         assembled += '---\n'
@@ -50,13 +49,24 @@ class front_matter:
 with open('scripts/washed.json') as f:
   washed = json.load(f)
 for video in washed:
-    with open('_posts/' + video['date'] + '-' + video['title'] + '.md', "w") as outfile: 
+    with open('_posts/' + video['date'] + '-' + video['id'] + '.md', "w") as outfile: 
         header = front_matter()
         header.add('layout', 'post')
-        header.add('title', video['title'])
+        header.add('title', video['id'])
+        header.add('video-title', video['title'])
         header.add('date', video['date'])
         header.add('youtube', video['url'])
         header.add('category', video['category'])
-        outfile.write(header.assemble() + 'test content') 
+        r = ''
+
+        # content
+        if video['results'] != []:
+            for result in video['results']:
+                badge = '<span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-semibold leading-none bg-white hover:bg-gray-100 text-gray-400 border border-gray-200 rounded-full">' + result['type'] + '</span>'
+                if result['type'] == 'Winner':
+                    badge = '<span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-semibold leading-none text-red-50 bg-red-600 rounded-full">' + result['type'] + '</span>'
+                r += '<p>' + badge + result['name'] + '<br>' + '</p>'
+        outfile.write(header.assemble() + '<div class="space-y-1">' + r + '</div>') 
         
+        # print uncategorized videos
         if video['category'] == '_placeholder': print(video['id'])
