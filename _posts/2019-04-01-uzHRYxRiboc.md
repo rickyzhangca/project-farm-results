@@ -6,4 +6,4 @@ date: "2019-04-01"
 youtube: "https://www.youtube.com/watch?v=uzHRYxRiboc"
 category: "Grease"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

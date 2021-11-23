@@ -57,8 +57,8 @@ for video in washed:
         header.add('date', video['date'])
         header.add('youtube', video['url'])
         header.add('category', video['category'])
-        r = ''
 
+        r = ''
         # content
         if video['results'] != []:
             for result in video['results']:
@@ -66,6 +66,8 @@ for video in washed:
                 if result['type'] == 'Winner':
                     badge = '<span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-semibold leading-none text-red-50 bg-red-600 rounded-full">' + result['type'] + '</span>'
                 r += '<p>' + badge + result['name'] + '<br>' + '</p>'
+        else:
+            r = '<p class="text-gray-400">Adding soon</p>'
         outfile.write(header.assemble() + '<div class="space-y-1">' + r + '</div>') 
         
         # print uncategorized videos

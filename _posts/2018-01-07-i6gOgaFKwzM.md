@@ -6,4 +6,4 @@ date: "2018-01-07"
 youtube: "https://www.youtube.com/watch?v=i6gOgaFKwzM"
 category: "Fuel"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

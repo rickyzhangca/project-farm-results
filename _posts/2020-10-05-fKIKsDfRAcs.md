@@ -6,4 +6,4 @@ date: "2020-10-05"
 youtube: "https://www.youtube.com/watch?v=fKIKsDfRAcs"
 category: "Aluminum Welding Rods"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

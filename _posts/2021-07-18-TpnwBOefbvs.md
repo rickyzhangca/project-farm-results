@@ -6,4 +6,4 @@ date: "2021-07-18"
 youtube: "https://www.youtube.com/watch?v=TpnwBOefbvs"
 category: "Tool Battery"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

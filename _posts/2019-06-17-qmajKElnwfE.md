@@ -6,4 +6,4 @@ date: "2019-06-17"
 youtube: "https://www.youtube.com/watch?v=qmajKElnwfE"
 category: "Fastener"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

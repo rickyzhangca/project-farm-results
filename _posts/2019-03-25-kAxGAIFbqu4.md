@@ -6,4 +6,4 @@ date: "2019-03-25"
 youtube: "https://www.youtube.com/watch?v=kAxGAIFbqu4"
 category: "Fastner"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

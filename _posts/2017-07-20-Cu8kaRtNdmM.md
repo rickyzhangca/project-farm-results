@@ -6,4 +6,4 @@ date: "2017-07-20"
 youtube: "https://www.youtube.com/watch?v=Cu8kaRtNdmM"
 category: "Epoxy"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

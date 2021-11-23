@@ -6,4 +6,4 @@ date: "2021-05-02"
 youtube: "https://www.youtube.com/watch?v=hKIL9fqtDiA"
 category: "Ratchet Strap"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>

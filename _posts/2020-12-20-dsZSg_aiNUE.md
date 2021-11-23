@@ -6,4 +6,4 @@ date: "2020-12-20"
 youtube: "https://www.youtube.com/watch?v=dsZSg_aiNUE"
 category: "Wrench"
 ---
-<div class="space-y-1"></div>
+<div class="space-y-1"><p class="text-gray-400">Adding soon</p></div>
