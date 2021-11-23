@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">  
   {% include head.md %}
-  {% include google-analytics.md %}
   <main class="flex flex-col h-screen">
     <div class="overflow-visible flex flex-col lg:flex-row lg:flex-1 lg:overflow-hidden">
       <div class="block flex flex-shrink-0 lg:w-96">

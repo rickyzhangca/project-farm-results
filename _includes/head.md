@@ -11,4 +11,5 @@
   <link rel="stylesheet" async href="{{ site.github.url }}/assets/css/syntax.css" />
   {% include latex.md %}
   {% seo %}
+  {% include google-analytics.md %}
 </head>
