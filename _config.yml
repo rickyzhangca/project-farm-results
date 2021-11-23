@@ -12,7 +12,7 @@ plugins:
   - jekyll-loading-lazy
 
 # google analytics
-google_analytics_id: "Google Analytics ID"
+google_analytics_id: "G-MPGC3KH3JN"
 
 # other configs
 exclude: ["CNAME", "README.md"]
