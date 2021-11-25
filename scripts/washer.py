@@ -59,13 +59,18 @@ for video in washed:
         header.add('category', video['category'])
 
         r = ''
+        badge = ''
         # content
         if video['results'] != []:
             for result in video['results']:
-                badge = '<span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-semibold leading-none bg-white hover:bg-gray-100 text-gray-400 border border-gray-200 rounded-full">' + result['type'] + '</span>'
                 if result['type'] == 'Winner':
                     badge = '<span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-semibold leading-none text-red-50 bg-red-600 rounded-full">' + result['type'] + '</span>'
-                r += '<p>' + badge + result['name'] + '<br>' + '</p>'
+                else:
+                    badge = '<span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-semibold leading-none bg-white hover:bg-gray-100 text-gray-400 border border-gray-200 rounded-full">' + result['type'] + '</span>'
+                if result['link'] =='':
+                    r += '<p>' + badge + result['name'] + '<br>' + '</p>'
+                else:
+                    r += '<p>' + badge + '<a class="text-gray-900 hover:text-red-600 no-underline hover:no-underline" target="_blank" href="'+ result['link']+ '">' + result['name'] + '</a>' + '<br>' + '</p>'
         else:
             r = '<p class="text-gray-400">Adding soon</p>'
         outfile.write(header.assemble() + '<div class="space-y-1">' + r + '</div>') 
