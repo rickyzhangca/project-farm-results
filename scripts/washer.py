@@ -70,7 +70,7 @@ for video in washed:
                 if result['link'] =='':
                     r += '<p>' + badge + result['name'] + '<br>' + '</p>'
                 else:
-                    r += '<p>' + badge + '<a class="text-gray-900 hover:text-red-600 no-underline hover:no-underline" target="_blank" href="'+ result['link']+ '">' + result['name'] + '</a>' + '<br>' + '</p>'
+                    r += '<p>' + badge + '<a class="text-gray-900 hover:text-red-600 border-b-2 border-gray-200 hover:border-red-600 hover: hover:no-underline" target="_blank" href="'+ result['link']+ '">' + result['name'] + '</a>' + '<br>' + '</p>'
         else:
             r = '<p class="text-gray-400">Adding soon</p>'
         outfile.write(header.assemble() + '<div class="space-y-1">' + r + '</div>') 

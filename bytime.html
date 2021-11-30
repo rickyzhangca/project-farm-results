@@ -15,39 +15,19 @@ title: "Project Farm Results"
       to quickly search for the tools
   </p>
   <button class="items-center space-x-4 bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 font-medium py-3 px-4 rounded" 
-    onclick=" window.open('{{ site.url }}/bytime', target = '_self')">
-      <span>Sort by time</span>
+    onclick=" window.open('{{ site.url }}', target = '_self')">
+      <span>Sort by categories</span>
   </button>
 
-  {% assign rawcategories = "" %}
   {% for post in site.posts %}
-    {% assign ccategories = post.category | join:'|' | append:'|' %}
-    {% assign rawcategories = rawcategories | append:ccategories %}
-  {% endfor %}
-  {% assign rawcategories = rawcategories | split:'|' | sort %}
-
-  {% assign categories = "" %}
-  {% for category in rawcategories %}
-    {% if category != "" %}
-      {% if categories == "" %}
-        {% assign categories = category | split:'|' %}
-      {% endif %}
-      {% unless categories contains category %}
-        {% assign categories = categories | join:'|' | append:'|' | append:category | split:'|' %}
-      {% endunless %}
-    {% endif %}
-  {% endfor %}
-
-  {% for category in categories %}
     <div class="flex flex-col lg:flex-row lg:space-x-4">
       <div class="flex lg:w-80 items-start pt-8">
         <div class="flex items-center">
           <img class="mr-2 w-8" src="{{ site.url }}/assets/images/tag.svg">
-          <p class="text-lg font-semibold text-gray-900"> {{ category }} </p>
+          <p class="text-lg font-semibold text-gray-900"> {{ post.category }} </p>
         </div>
       </div>
       <div class="flex flex-1 flex-col">
-        {% for post in site.categories[category] %}
           <article class="flex flex-1 flex-col py-8 border-b border-gray-200">
             <p class="space-x-1">
               <a
@@ -64,7 +44,6 @@ title: "Project Farm Results"
             </p>
             <p class="mt-4">{{ post.content }}</p>
           </article>
-        {% endfor %}
       </div>
     </div>
   {% endfor %}
