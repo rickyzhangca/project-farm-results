@@ -15,7 +15,7 @@ title: "Project Farm Results"
       to quickly search for the tools
   </p>
   <button class="items-center space-x-4 bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 font-medium py-3 px-4 rounded" 
-    onclick=" window.open('{{ site.github.url }}/bytime', target = '_self')">
+    onclick=" window.open('{{ site.url }}/bytime', target = '_self')">
       <span>Sort by time</span>
   </button>
 
@@ -42,7 +42,7 @@ title: "Project Farm Results"
     <div class="flex flex-col lg:flex-row lg:space-x-4">
       <div class="flex lg:w-80 items-start pt-8">
         <div class="flex items-center">
-          <img class="mr-2 w-8" src="{{ site.github.url }}/assets/images/tag.svg">
+          <img class="mr-2 w-8" src="{{ site.url }}/assets/images/tag.svg">
           <p class="text-lg font-semibold text-gray-900"> {{ category }} </p>
         </div>
       </div>
@@ -52,7 +52,7 @@ title: "Project Farm Results"
             <p class="space-x-1">
               <a
                 class="text-lg font-medium leading-tight text-gray-900 hover:text-red-600 no-underline hover:no-underline"
-                href="{{ site.github.url }}{{post.youtube}}"
+                href="{{ site.url }}{{post.youtube}}"
                 target="_blank"
                 title="{{ post.title }}"
               >
